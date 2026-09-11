@@ -575,10 +575,9 @@ backend logs
 
 Production secrets should be stored only as secure hosting environment variables.
 
-📄 License
+## 📄 License
 
-Add the open-source license selected for the hackathon (for example, MIT).
-
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 <p align="center">
   <strong>Accessly ♿</strong><br>
   Accessibility coordination, handled.
