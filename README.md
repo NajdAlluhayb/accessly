@@ -1,168 +1,274 @@
-♿ Accessly
+# ♿ Accessly
 
 <p align="center">
   <strong>Tell Accessly your accessibility needs once — it coordinates the rest for every event.</strong>
 </p>
 
 <p align="center">
-  <a href="https://accessly-murex.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-Vercel-000000?logo=vercel&logoColor=white"></a>
-  <a href="https://github.com/ghaida-alsalamah/accessly"><img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white"></a>
+  <a href="https://accessly-murex.vercel.app/">
+    <img src="https://img.shields.io/badge/Live_Demo-Vercel-000000?logo=vercel&logoColor=white">
+  </a>
+  <a href="https://github.com/ghaida-alsalamah/accessly">
+    <img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white">
+  </a>
   <img src="https://img.shields.io/badge/AWS-Bedrock-FF9900?logo=amazonwebservices&logoColor=white">
   <img src="https://img.shields.io/badge/Strands-Agents_SDK-6C47FF">
   <img src="https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi&logoColor=white">
   <img src="https://img.shields.io/badge/Playwright-Chromium-2EAD33?logo=playwright&logoColor=white">
 </p>
 
-🌍 What is Accessly?
+---
 
-Accessly is an AI accessibility coordination agent for events.
+## 🌍 What is Accessly?
 
-People who need accommodations often repeat the same process for every conference, workshop, seminar, university event, or community activity: find accessibility information, locate the correct contact or form, explain their needs again, check timing, submit a request, follow up, and wait for confirmation.
+**Accessly is an AI accessibility coordination agent for events.**
 
-Accessly turns that repetitive workflow into one coordinated experience.
+People who need accessibility accommodations often repeat the same process for every conference, workshop, seminar, university event, or community activity:
 
-Tell it your accessibility needs once. For every event after that, it handles the accessibility coordination for you.
+- Search for accessibility information
+- Find the correct contact person or form
+- Explain their needs again
+- Check accommodation request deadlines
+- Submit a request
+- Follow up
+- Wait for confirmation
 
-👉 Live demo
+Accessly turns that repetitive process into one coordinated workflow.
 
-https://accessly-murex.vercel.app/
+> **Tell it your accessibility needs once. For every event after that, it handles the accessibility coordination for you.**
 
-💡 The Problem
+### 🚀 Live Demo
 
-Accessibility information is often scattered, incomplete, hidden behind forms, or only available after contacting an organizer.
+👉 **[Try Accessly](https://accessly-murex.vercel.app/)**
+
+---
+
+## 💡 The Problem
+
+Accessibility information for events is often:
+
+- Scattered across multiple pages
+- Hidden behind forms
+- Described using inconsistent wording
+- Incomplete
+- Or only available after contacting an organizer
+
+Even when an accommodation is available, the attendee may still need to manually coordinate it.
 
 A user may need:
 
-ASL interpretation
+- ASL interpretation
+- Live captions
+- Accessible parking
+- Wheelchair access
+- Accessible seating
+- Assistive listening
+- Large-print materials
+- Screen-reader-friendly materials
+- Quiet or sensory-friendly space
 
-live captions
+For every new event, they may need to repeat the same process.
 
-accessible parking
+**Accessly reduces that friction.**
 
-wheelchair access
+---
 
-accessible seating
+# ✨ How Accessly Works
 
-assistive listening
+## 👤 1. Save Accessibility Needs
 
-large-print materials
+Users create a reusable accessibility profile.
 
-screen-reader-friendly materials
+No diagnosis is required.
 
-quiet / sensory-friendly space
+Users can select common accessibility needs or enter a custom need.
 
-For every new event, they may need to repeat the entire search-and-request process.
+---
 
-Accessly is designed to reduce that friction.
-
-✨ What Accessly Does
-
-👤 1. Save accessibility needs
-
-The user creates a reusable accessibility profile. No diagnosis is required.
-
-🔗 2. Paste an event URL
+## 🔗 2. Paste an Event URL
 
 The user provides the official event page.
 
-🌐 3. Browse the real event website
+Accessly begins investigating the event automatically.
 
-Accessly uses Playwright/Chromium to inspect the event page and official linked resources.
+---
 
-🔎 4. Extract event details
+## 🌐 3. Browse the Real Event Website
+
+Accessly uses **Playwright + Chromium** to inspect:
+
+- The event page
+- Accessibility information
+- Linked accessibility pages
+- Official forms
+- Organizer information
+- Request instructions
+
+This allows Accessly to interact with real websites instead of relying only on static HTTP requests.
+
+---
+
+## 🔎 4. Extract Event Details
 
 Accessly verifies:
 
-Event name
+- Event name
+- Date
+- Time
+- Location
+- Organizer
+- Event format
 
-Date
+These details are returned to the frontend and displayed as structured UI cards.
 
-Time
+---
 
-Location
+## ♿ 5. Evaluate Each Accessibility Need
 
-Organizer
+Each saved need receives one of four statuses:
 
-Event format
+| Status | Meaning |
+|---|---|
+| ✅ **Confirmed** | Official evidence explicitly confirms the accommodation |
+| ❌ **Not Confirmed** | The need applies, but no confirmation was found |
+| ➖ **Not Applicable** | The accommodation clearly does not apply to the event format |
+| ❓ **Unknown** | Accessly cannot reliably verify the information |
 
-♿ 5. Evaluate every saved need
+Accessly never assumes that an accessibility feature exists without official evidence.
 
-Status
+---
 
-Meaning
+## 📝 6. Find the Official Request Path
 
-✅ Confirmed
+If an accommodation is not already confirmed, Accessly searches for the official method to request it.
 
-Official evidence explicitly confirms the accommodation
+This may include:
 
-❌ Not Confirmed
+- Accessibility request form
+- Organizer email
+- Disability/accessibility office
+- Official support contact
+- Event registration instructions
 
-Applicable, but no confirmation was found
+---
 
-➖ Not Applicable
+## ⏰ 7. Check Request Timing
 
-Clearly irrelevant to the event format
+Accessly distinguishes between:
 
-❓ Unknown
+- A **preferred notice period**
+- A **hard deadline**
 
-Accessly cannot verify it reliably
+Date calculations are handled programmatically rather than guessed by the language model.
 
-Accessly does not assume accessibility features exist without official evidence.
+---
 
-📝 6. Find the official request path
+## ✉️ 8. Prepare the Request
 
-If action is needed, Accessly searches for the official form, organizer email, accessibility office, or other official contact channel.
+Accessly creates a structured accommodation request containing:
 
-⏰ 7. Check timing
+- Recipient
+- Subject
+- Message body
+- Relevant event information
+- Only applicable accessibility needs
 
-Accessly distinguishes between a preferred notice period and a hard deadline, and performs date calculations programmatically.
+The user sees the exact request before anything is sent.
 
-✉️ 8. Prepare the request
+---
 
-Accessly drafts the recipient, subject, and body using only the user's saved applicable needs.
+## ✅ 9. Human Approval Before Action
 
-✅ 9. Human approval
+Accessly uses a **human-in-the-loop workflow**.
 
-Nothing is sent until the user reviews and explicitly approves the exact request.
+Nothing is sent until the user explicitly approves the exact:
 
-📨 10. Send safely
+```text
+Recipient
+Subject
+Message Body
+```
 
-During development, Test Mode redirects messages to a controlled inbox so real organizers are not contacted accidentally.
+---
 
-📊 11. Track the request
+## 📨 10. Safe Test Mode
 
-After sending, Accessly creates a request such as REQ-001 and tracks overall and per-accommodation statuses.
+During development, emails are redirected to a controlled test inbox.
 
-🔄 12. Check replies
+This allows the complete workflow to be demonstrated without accidentally contacting real event organizers.
 
-Accessly can check the controlled inbox, classify a matching reply, and update the request status.
+---
 
-🧠 Agent Workflow
+## 📊 11. Track the Request
 
+After a successful request, Accessly creates a tracking record such as:
+
+```text
+REQ-001
+```
+
+The user can view:
+
+- Event
+- Overall request status
+- Individual accommodation statuses
+- Request history
+- Updates
+
+---
+
+## 🔄 12. Check Organizer Replies
+
+Accessly can check the inbox for a matching reply.
+
+The agent interprets the response and updates the request.
+
+Example:
+
+```text
+ASL interpretation  → CONFIRMED
+Accessible parking  → NOT APPLICABLE
+Overall request     → CONFIRMED
+```
+
+---
+
+# 🧠 Agent Workflow
+
+```mermaid
 flowchart TD
-    A[👤 Save accessibility needs] --> B[🔗 Submit event URL]
-    B --> C[🤖 Strands Agent]
-    C --> D[🌐 Playwright / Chromium]
-    D --> E[Official event page + linked resources]
-    E --> F[🔎 Extract event & accessibility evidence]
-    F --> G[♿ Evaluate each need]
-    G --> H{Action required?}
-    H -- No --> I[✅ Show verified status]
-    H -- Yes --> J[📝 Find official request channel]
-    J --> K[⏰ Check timing]
-    K --> L[✉️ Draft request]
-    L --> M[👀 User reviews]
-    M --> N{Approved?}
-    N -- No --> O[✏️ Edit / cancel]
-    N -- Yes --> P[📨 Send in Test Mode]
-    P --> Q[📁 Create tracked request]
-    Q --> R[📬 Check reply]
-    R --> S[🧠 Classify response]
-    S --> T[📊 Update statuses]
+    A["👤 User saves accessibility needs"] --> B["🔗 User submits event URL"]
+    B --> C["🤖 Strands Agent"]
+    C --> D["🌐 Playwright / Chromium"]
+    D --> E["Official Event Page & Resources"]
+    E --> F["🔎 Extract Event + Accessibility Evidence"]
+    F --> G["♿ Evaluate Each Saved Need"]
 
-🛠️ Tech Stack
+    G --> H{"Action Required?"}
 
-<p>
+    H -- "No" --> I["✅ Show Verified Accessibility Status"]
+    H -- "Yes" --> J["📝 Find Official Request Form / Contact"]
+
+    J --> K["⏰ Check Timing"]
+    K --> L["✉️ Prepare Request Draft"]
+    L --> M["👀 Human Reviews Exact Request"]
+
+    M --> N{"Approved?"}
+
+    N -- "No" --> O["✏️ Edit / Cancel"]
+    N -- "Yes" --> P["📨 Send in Safe Test Mode"]
+
+    P --> Q["📁 Create Tracked Request"]
+    Q --> R["📬 Check Organizer Reply"]
+    R --> S["🧠 Classify Response"]
+    S --> T["📊 Update Request Status"]
+```
+
+---
+
+# 🛠️ Tech Stack
+
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white">
   <img src="https://img.shields.io/badge/Strands-Agents_SDK-6C47FF">
   <img src="https://img.shields.io/badge/Amazon_Bedrock-Claude_Sonnet-FF9900?logo=amazonwebservices&logoColor=white">
@@ -171,278 +277,506 @@ flowchart TD
   <img src="https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=black">
   <img src="https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white">
   <img src="https://img.shields.io/badge/Docker-Container-2496ED?logo=docker&logoColor=white">
-  <img src="https://img.shields.io/badge/Vercel-Frontend_Hosting-000000?logo=vercel&logoColor=white">
-  <img src="https://img.shields.io/badge/Northflank-Backend_Hosting-0A84FF">
+  <img src="https://img.shields.io/badge/Vercel-Frontend-000000?logo=vercel&logoColor=white">
+  <img src="https://img.shields.io/badge/Northflank-Backend-0A84FF">
   <img src="https://img.shields.io/badge/Gmail-SMTP_%26_IMAP-EA4335?logo=gmail&logoColor=white">
   <img src="https://img.shields.io/badge/GitHub-Version_Control-181717?logo=github&logoColor=white">
 </p>
 
-Technology
+| Technology | Role in Accessly |
+|---|---|
+| **Python 3.11** | Core backend and agent logic |
+| **Strands Agents SDK** | Agent orchestration and tool usage |
+| **Amazon Bedrock** | Managed foundation model access |
+| **Claude Sonnet** | Reasoning, event analysis, drafting, and reply classification |
+| **FastAPI** | API connecting the frontend to the agent |
+| **Playwright / Chromium** | Real browser automation |
+| **React + Vite** | User interface |
+| **Docker** | Reproducible backend runtime |
+| **Vercel** | Public frontend deployment |
+| **Northflank** | Containerized backend deployment |
+| **Gmail SMTP** | Test-mode email sending |
+| **Gmail IMAP** | Reply checking |
+| **GitHub** | Source control and deployment integration |
 
-Role
+---
 
-Python 3.11
+# 🏗️ Architecture
 
-Core backend and agent logic
-
-Strands Agents SDK
-
-Agent orchestration and tool use
-
-Amazon Bedrock + Claude Sonnet
-
-Reasoning, event understanding, drafting, reply classification
-
-FastAPI
-
-API between frontend and the agent
-
-Playwright / Chromium
-
-Real website and form inspection
-
-React + Vite
-
-Product frontend
-
-Docker
-
-Reproducible backend runtime with Chromium
-
-Vercel
-
-Public frontend hosting
-
-Northflank
-
-Public containerized backend hosting
-
-Gmail SMTP / IMAP
-
-Test-mode sending and reply checking
-
-GitHub
-
-Source control and deployment integration
-
-🏗️ Architecture
-
+```mermaid
 flowchart LR
-    U[👤 User] --> FE[💻 React / Vite Frontend]
-    FE -->|HTTPS API| API[⚡ FastAPI]
-    API --> AGENT[🤖 Strands Agent]
-    AGENT --> BEDROCK[☁️ Amazon Bedrock]
-    AGENT --> BROWSER[🌐 Playwright / Chromium]
-    AGENT --> MAIL[📨 Gmail SMTP / IMAP]
-    AGENT --> TRACK[📁 Request Tracking]
-    FE --- VERCEL[▲ Vercel]
-    API --- NF[☁️ Northflank]
+    U["👤 User"] --> FE["💻 React / Vite Frontend"]
 
+    FE -->|"HTTPS API"| API["⚡ FastAPI Backend"]
+
+    API --> AGENT["🤖 Strands Agent"]
+
+    AGENT --> BEDROCK["☁️ Amazon Bedrock"]
+    AGENT --> BROWSER["🌐 Playwright / Chromium"]
+    AGENT --> MAIL["📨 Gmail SMTP / IMAP"]
+    AGENT --> TRACK["📁 Request Tracking"]
+
+    VERCEL["▲ Vercel"] -. hosts .-> FE
+    NF["☁️ Northflank"] -. hosts .-> API
+```
+
+---
+
+## 🌐 Deployment Architecture
+
+```text
 User
-  ↓
-Vercel Frontend
-  ↓ HTTPS
-Northflank FastAPI Backend
-  ↓
+ │
+ ▼
+Accessly Frontend
+Vercel
+ │
+ │ HTTPS API
+ ▼
+FastAPI Backend
+Northflank
+ │
+ ▼
 Strands Agent
-  ├── Amazon Bedrock
-  ├── Playwright / Chromium
-  ├── Gmail SMTP / IMAP
-  └── Request Tracking
+ │
+ ├── Amazon Bedrock
+ ├── Playwright / Chromium
+ ├── Gmail SMTP / IMAP
+ └── Request Tracking
+```
 
-🧩 Core Agent Tools
+---
 
-get_user_accessibility_needs — reads the user's saved profile.
+# 🧩 Core Agent Tools
 
-check_event_timing — calculates days until the event and notice windows.
+## `get_user_accessibility_needs`
 
-Browser tool — inspects event pages, linked accessibility resources, and forms.
+Reads the user's saved accessibility profile dynamically.
 
-send_accommodation_email — sends an explicitly approved request in safe Test Mode.
+---
 
-create_request_record — creates a tracked request after a successful send.
+## `check_event_timing`
 
-check_organizer_reply — checks for a matching reply.
+Calculates:
 
-update_request_status — updates overall and per-accommodation statuses.
+- Event date
+- Days until event
+- Preferred notice date
+- Whether the preferred notice period has passed
 
-🛡️ Safety by Design
+---
 
-Accessly will not:
+## Browser Tool
 
-invent accessibility information,
+Uses Chromium to inspect:
 
-assume a feature exists,
+- Event pages
+- Accessibility information
+- Linked resources
+- Forms
+- Organizer pages
 
-invent form fields,
+---
 
-invent names, phone numbers, or diagnoses,
+## `send_accommodation_email`
 
-expand a saved accessibility need into additional needs,
+Sends an explicitly approved accommodation request.
 
-send before explicit approval,
+During development, it operates in **Test Mode**.
 
-automatically retry a failed send,
+---
 
-submit a real organization's form during testing.
+## `create_request_record`
 
-Human-in-the-loop
+Creates a tracked request after successful sending.
 
-Before any send action, Accessly shows the exact:
+Example:
 
+```text
+REQ-001
+```
+
+---
+
+## `check_organizer_reply`
+
+Checks the inbox for a reply associated with a tracked request.
+
+---
+
+## `update_request_status`
+
+Updates:
+
+- Overall request status
+- Individual accessibility accommodation statuses
+
+---
+
+# 🛡️ Safety by Design
+
+Accessibility coordination may involve real organizations and personal information.
+
+Accessly therefore follows strict safety rules.
+
+## Accessly will not:
+
+- Invent accessibility information
+- Assume an accommodation exists
+- Invent form fields
+- Invent names, phone numbers, or diagnoses
+- Expand the user's saved accessibility needs
+- Send a request without approval
+- Automatically retry a failed send
+- Submit a real organization's form during development testing
+
+---
+
+## 👀 Human-in-the-Loop Approval
+
+Before a request is sent, Accessly shows the exact:
+
+```text
 Recipient
 Subject
-Body
+Message Body
+```
 
-The user must explicitly approve that content.
+The user must explicitly approve it.
 
-Real form protection
+---
 
-During development, Accessly may inspect or fill a real organization form, but it never clicks the final Submit button.
+## 🧪 Real Form Test Safety
 
-🎨 Frontend Experience
+During development:
 
-The frontend intentionally avoids dumping raw LLM text.
+> Accessly may inspect or fill a real organization's accessibility form, but it never clicks the final Submit button.
 
-Event Details
+Only an Accessly-controlled test form may be fully submitted during testing.
 
-Structured fields for event name, date, time, location, organizer, and format.
+---
 
-Accessibility Check
+# 🎨 Frontend Experience
 
-Each need appears as a dedicated card with a status badge and short evidence.
+The frontend is intentionally designed to feel like a product rather than a raw chatbot.
 
-Request Action
+Instead of showing one large LLM response, Accessly converts agent results into structured UI components.
 
-Shows the official contact/form, timing information, and recommended next step.
+---
 
-Email Draft
+## 📅 Event Details
 
-Displayed in a dedicated component with recipient, subject, body, Edit, and Approve & Send.
+Displays:
 
-My Requests
+- Event Name
+- Date
+- Time
+- Location
+- Organizer
+- Format
 
-Shows request ID, event, overall status, individual accommodation statuses, and Check for Updates.
+---
 
-🧪 Testing
+## ♿ Accessibility Check
 
-Accessly was tested against real public university event pages, including pages from:
+Each accessibility need receives its own card containing:
 
-University of Michigan
+- Need
+- Status badge
+- Supporting evidence
 
-Syracuse University
+---
 
-University of Washington
+## 📝 Request Action
 
-Stanford University
+Displays:
+
+- Official contact or form
+- Notice information
+- Recommended action
+
+---
+
+## ✉️ Email Draft
+
+Displays:
+
+- To
+- Subject
+- Message
+- Edit
+- Approve & Send
+
+---
+
+## 📊 My Requests
+
+Displays:
+
+- Request ID
+- Event
+- Overall status
+- Individual accommodation statuses
+- Check for Updates
+
+---
+
+# 🧪 Testing
+
+Accessly was tested against real public university event pages.
+
+Examples included:
+
+- University of Michigan
+- Syracuse University
+- University of Washington
+- Stanford University
 
 Testing covered:
 
-dynamic event extraction,
+- Real event browsing
+- Dynamic event extraction
+- Accessibility evidence checking
+- Virtual vs. in-person applicability
+- Preferred notice periods
+- Official accessibility forms
+- Organizer contact discovery
+- Email drafting
+- Human approval
+- Test-mode sending
+- Request creation
+- Reply checking
+- Status updates
 
-accessibility evidence checking,
+---
 
-virtual vs. in-person applicability,
+## 🐳 Production Container Smoke Test
 
-notice calculations,
+The production backend container was tested inside Northflank using:
 
-official accommodation forms,
-
-organizer contact discovery,
-
-email drafting,
-
-test-mode sending,
-
-request creation,
-
-reply checking,
-
-and status updates.
-
-Production container smoke test
-
+```bash
 python container_smoke.py
+```
 
-Validated successfully:
+Result:
 
+```text
 PASS: Strands/browser imports, FastAPI startup, /health, headless Chromium
+```
 
-The public deployment was also tested end-to-end for profile loading, event analysis, structured results, request drafting, safe sending, request creation, and update checking.
+This confirmed that:
 
-🧭 Development Process
+- FastAPI starts successfully
+- Strands browser dependencies load
+- Chromium launches headlessly
+- The health endpoint responds correctly
 
-Phase 1 — Terminal agent prototype
+---
 
-We first proved the complete agent workflow from the terminal using Strands and Amazon Bedrock.
+## 🌐 Public End-to-End Test
 
-Phase 2 — Real browser automation
+The deployed application was tested through the public Vercel frontend and Northflank backend.
 
-Some event sites rejected simple HTTP requests, so Accessly moved to Playwright/Chromium for real browser navigation.
+Verified:
 
-Phase 3 — Safe email workflow
+- Frontend loads
+- Profile saves successfully
+- FastAPI receives event requests
+- Strands Agent runs
+- Bedrock processes the event
+- Event Details update dynamically
+- Accessibility results render as structured cards
+- Draft generation works
+- Human approval works
+- Test email sending works
+- Request tracking works
+- Check for Updates works
+- No CORS or frontend JavaScript errors were detected during the tested flow
 
-Gmail SMTP was added with a strict Test Mode and approval guard.
+---
 
-Phase 4 — Request tracking
+# 🧭 Development Process
 
-The prototype gained request IDs, per-accommodation status, reply checking, and automatic updates.
+## Phase 1 — Terminal Agent Prototype
 
-Phase 5 — Dynamic profiles
+The first version ran completely from the terminal.
 
-Accessibility needs were moved out of hardcoded logic and into a reusable user profile.
+The initial goal was to prove that an agent could:
 
-Phase 6 — Product frontend
+1. Receive a real event URL
+2. Browse the event
+3. Understand saved accessibility needs
+4. Find accessibility information
+5. Locate an official request path
+6. Draft a request
+7. Require user approval
 
-The agent was exposed through FastAPI and connected to the React/Vite interface. Raw agent output was converted into structured UI components.
+---
 
-Phase 7 — Public deployment
+## Phase 2 — Real Browser Automation
 
-The frontend was deployed on Vercel and the Dockerized backend on Northflank.
+Some event websites rejected simple HTTP requests or required interactive navigation.
 
-📁 Repository Structure
+Accessly therefore moved to a real Chromium browser using **Playwright**.
 
+This allowed the agent to:
+
+- Navigate dynamic pages
+- Follow official links
+- Inspect accessibility resources
+- Open forms
+- Extract real event information
+
+---
+
+## Phase 3 — Safe Email Workflow
+
+Gmail SMTP was added for request delivery.
+
+A dedicated **Test Mode** redirects development messages to a controlled inbox rather than the real organizer.
+
+---
+
+## Phase 4 — Request Tracking
+
+The system gained:
+
+- Request IDs
+- Overall request status
+- Per-accommodation status
+- Inbox reply checking
+- Automatic updates
+
+---
+
+## Phase 5 — Dynamic Accessibility Profiles
+
+Accessibility needs were moved out of hardcoded agent logic.
+
+The agent now reads the user's saved profile dynamically.
+
+---
+
+## Phase 6 — Product Frontend
+
+The terminal-based prototype was connected to a **React/Vite frontend** through **FastAPI**.
+
+Agent responses were transformed from raw text into structured UI cards.
+
+---
+
+## Phase 7 — Cloud Deployment
+
+The final architecture separates the frontend and backend:
+
+```text
+Vercel Frontend
+       ↓
+Northflank FastAPI Backend
+       ↓
+Strands Agent
+       ↓
+Amazon Bedrock + Chromium + Gmail
+```
+
+The backend is packaged in Docker so Chromium and its Linux dependencies run consistently in production.
+
+---
+
+# 📁 Repository Structure
+
+```text
 accessly/
-├── frontend/                     # React/Vite frontend
-├── api.py                        # FastAPI application
-├── main.py                       # Strands Agent + tools
-├── result_presenter.py           # Structured result presentation
-├── deployment_runtime.py         # Production runtime configuration
-├── container_smoke.py            # Production smoke test
+│
+├── frontend/
+│   └── React / Vite frontend
+│
+├── api.py
+├── main.py
+├── result_presenter.py
+├── deployment_runtime.py
+├── container_smoke.py
+│
 ├── Dockerfile.northflank
 ├── .dockerignore
 ├── .gitignore
+│
 ├── requirements-api.txt
 ├── requirements-production.txt
+│
 ├── test_frontend_ux.py
 ├── test_live_frontend.py
 ├── test_northflank.py
 ├── test_public_send.py
 ├── test_result_presenter.py
+│
 ├── .env.production.example
+├── LICENSE
 └── README.md
+```
 
-Secret .env files, logs, user profiles, request data, virtual environments, and credentials should never be committed.
+> ⚠️ Secret `.env` files, local profiles, logs, credentials, and runtime request data should never be committed.
 
-⚙️ Run Locally
+---
 
-Backend
+# ⚙️ Local Setup
 
+## Prerequisites
+
+Make sure you have:
+
+- Python 3.11+
+- Node.js
+- npm
+- Git
+- Amazon Bedrock access
+- A Bedrock bearer token
+- Gmail App Password for email testing
+
+---
+
+## 1. Clone the Repository
+
+```bash
 git clone https://github.com/ghaida-alsalamah/accessly.git
 cd accessly
+```
 
+---
+
+## 2. Create a Python Virtual Environment
+
+```bash
 python -m venv .venv
+```
 
 Windows:
 
+```powershell
 .venv\Scripts\Activate.ps1
+```
 
-Install dependencies:
+---
 
+## 3. Install Backend Dependencies
+
+```bash
 pip install -r requirements-production.txt
+```
 
-Create .env:
+---
 
+## 4. Create `.env`
+
+Create a local file named:
+
+```text
+.env
+```
+
+Add:
+
+```env
 AWS_BEARER_TOKEN_BEDROCK=
 AWS_REGION=eu-north-1
 
@@ -451,120 +785,260 @@ ACCESSLY_EMAIL_APP_PASSWORD=
 ACCESSLY_TEST_RECIPIENT=
 
 ACCESSLY_ALLOWED_ORIGINS=http://localhost:5173
+
 PORT=8000
+```
 
-Start FastAPI:
+> 🚨 Never commit `.env` to GitHub.
 
+---
+
+## 5. Start the Backend
+
+```bash
 python -m uvicorn api:app --host 0.0.0.0 --port 8000
+```
 
-Health check:
+Test the health endpoint:
 
+```text
 http://localhost:8000/health
+```
 
 Expected:
 
-{"status":"ok"}
+```json
+{
+  "status": "ok"
+}
+```
 
-Frontend
+---
 
+## 6. Start the Frontend
+
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-Frontend API variable:
+Frontend environment variable:
 
+```env
 VITE_API_BASE_URL=http://localhost:8000/api
+```
 
-☁️ Deployment
+---
 
-Vercel
+# ☁️ Deployment
 
+## ▲ Frontend — Vercel
+
+Production configuration:
+
+```text
 Root Directory: frontend
 Build Command: npm run build
 Output Directory: dist
+```
 
-VITE_API_BASE_URL=https://<northflank-backend>/api
+Environment variable:
 
-Northflank
+```env
+VITE_API_BASE_URL=https://<your-backend-domain>/api
+```
 
-Service: Combined
-Build: Dockerfile / BuildKit
+Current public frontend:
+
+👉 https://accessly-murex.vercel.app/
+
+---
+
+## ☁️ Backend — Northflank
+
+Accessly uses a **Combined Build and Deployment Service**.
+
+Configuration:
+
+```text
+Repository: ghaida-alsalamah/accessly
+Branch: main
+
+Build Option: Dockerfile / BuildKit
 Dockerfile: /Dockerfile.northflank
-Build context: /
-Internal port: 8000
+Build Context: /
+
+Internal Port: 8000
 Protocol: HTTP
+Accessibility: Public
 Instances: 1
+```
 
-Runtime variables:
+Runtime environment variables:
 
+```env
 AWS_BEARER_TOKEN_BEDROCK=
 AWS_REGION=eu-north-1
+
 ACCESSLY_EMAIL=
 ACCESSLY_EMAIL_APP_PASSWORD=
 ACCESSLY_TEST_RECIPIENT=
+
 ACCESSLY_ALLOWED_ORIGINS=https://accessly-murex.vercel.app
+
 PORT=8000
+```
 
-📌 Current Limitations
+Health check:
 
-Profile/request storage is currently lightweight local storage and should move to a persistent database for production.
+```text
+GET /health
+```
 
-CAPTCHA, authentication, and anti-bot protections can prevent verification on some event websites.
+---
 
-If official evidence cannot be verified, Accessly returns Unknown instead of guessing.
+# 📌 Current Limitations
 
-Organizer integrations currently rely mainly on official webpages, forms, and email.
+Accessly is a working hackathon prototype, but several areas would be upgraded for production.
 
-🔮 Roadmap
+## Persistent Storage
 
-30 days
+The current prototype uses lightweight local profile/request storage.
 
-Persistent database, stronger parsing, improved error recovery.
+Container filesystems can be ephemeral.
 
-60 days
+A production version should move this state to a persistent database such as:
 
-Event-platform connectors, richer notifications, reusable institutional integrations.
+- Amazon DynamoDB
+- PostgreSQL
+- Firestore
+- Supabase
 
-90 days
+---
 
-Multi-user authentication, accessibility-office integrations, fulfillment analytics, and larger-scale deployment.
+## Website Restrictions
 
-🌱 Impact
+Some event websites may use:
+
+- CAPTCHA
+- Authentication
+- Bot protection
+- Restricted third-party forms
+
+If Accessly cannot verify information reliably, it returns:
+
+```text
+UNKNOWN
+```
+
+instead of guessing.
+
+---
+
+## Organizer Integrations
+
+The current prototype primarily works through:
+
+- Official websites
+- Accessibility forms
+- Organizer email
+
+Future versions could integrate directly with:
+
+- University accessibility offices
+- Event platforms
+- Conference systems
+- Registration providers
+
+---
+
+# 🔮 Future Roadmap
+
+## 30 Days
+
+- Persistent database
+- Stronger event parsing
+- Improved error recovery
+- More accessibility need templates
+
+## 60 Days
+
+- Event platform connectors
+- Accessibility-office integrations
+- Richer notifications
+- Reusable institutional profiles
+
+## 90 Days
+
+- Multi-user authentication
+- University deployments
+- Organizer dashboards
+- Accessibility request analytics
+- Larger-scale deployment
+
+---
+
+# 🌱 Impact
 
 Accessly is not intended to replace accessibility teams.
 
-It is designed to reduce repetitive coordination between attendees and organizers.
+It is designed to reduce repetitive coordination between attendees and event organizers.
 
-Accessibility needs should not have to be re-explained from scratch for every event.
+> **Accessibility needs should not have to be re-explained from scratch for every event.**
 
-🏆 Built for Agents for Humans
+By transforming fragmented accessibility information into an actionable workflow, Accessly can make participation in education, professional development, conferences, and community activities easier and more consistent.
 
-Accessly demonstrates an agent that moves beyond answering questions and carries a real workflow through multiple steps:
+---
 
-Understand → Browse → Verify → Decide → Draft → Ask → Act → Track → Follow up
+# 🏆 Built for Agents for Humans
 
-👥 Team
+Accessly demonstrates how an AI agent can move beyond simply answering questions and instead carry a real human workflow through multiple steps:
 
-Built by the Accessly team through a combination of:
+```text
+Understand
+   ↓
+Browse
+   ↓
+Verify
+   ↓
+Decide
+   ↓
+Draft
+   ↓
+Ask
+   ↓
+Act
+   ↓
+Track
+   ↓
+Follow Up
+```
 
-AI agent development
+---
 
-backend engineering
+# 👥 Team
 
-browser automation
+Built by the **Accessly Team**.
 
-frontend/product design
+Our work combined:
 
-accessibility-focused UX
+- AI Agent Development
+- Backend Engineering
+- Browser Automation
+- Frontend Development
+- Product Design
+- Accessibility-focused UX
+- Testing
+- Cloud Deployment
 
-testing
+---
 
-cloud deployment
-
-🔐 Security
+# 🔐 Security
 
 Never commit:
 
+```text
 .env
 AWS credentials
 Gmail App Passwords
@@ -572,13 +1046,22 @@ test inbox credentials
 user_profile.json
 requests.json
 backend logs
+```
 
-Production secrets should be stored only as secure hosting environment variables.
+Production secrets should only be stored as secure hosting environment variables.
 
-## 📄 License
+---
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+See the [LICENSE](LICENSE) file for details.
+
+---
+
 <p align="center">
-  <strong>Accessly ♿</strong><br>
+  <strong>Accessly ♿</strong>
+  <br>
   Accessibility coordination, handled.
 </p>
