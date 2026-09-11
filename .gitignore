@@ -216,3 +216,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Frontend / Node
+node_modules/
+frontend/node_modules/
+
+# Local secrets
+.env
+.env.*
+
+# Local runtime data
+requests.json
+user_profile.json
+
+# OS
+.DS_Store
+Thumbs.db
