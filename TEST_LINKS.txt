@@ -1,0 +1,58 @@
+Accessly - Tested Event Links
+
+Live application:
+https://accessly-murex.vercel.app/
+
+==================================================
+TESTED EVENT LINKS
+==================================================
+
+1. University of Washington
+https://psych.uw.edu/events/115
+
+Good for testing:
+- Virtual-event reasoning
+- Not Applicable status for physical accommodations such as Accessible parking
+- Accessibility contact discovery
+- Notice-period reasoning
+
+Suggested accessibility needs:
+- ASL interpretation
+- Accessible parking
+
+
+2. Stanford University
+https://events.stanford.edu/event/TAPS-NSO-26
+
+Good for testing:
+- Event detail extraction
+- Accessibility request link discovery
+- Accommodation form inspection
+- Notice-period reasoning
+
+Suggested accessibility needs:
+- Wheelchair access
+- Live captions
+- ASL interpretation
+
+
+==================================================
+HOW TO TEST
+==================================================
+
+1. Open the live application.
+2. Save an accessibility profile.
+3. Paste one of the tested event links above.
+4. Run the accessibility check.
+5. Review:
+   - Event Details
+   - Accessibility statuses
+   - Recommended action
+   - Request draft, when applicable
+
+Important:
+- Accessly runs in TEST MODE.
+- Test emails are redirected to a controlled test inbox.
+- No real organizer receives test messages.
+- Real organization forms are never finally submitted during testing.
+- If Accessly cannot verify information from an official source, it reports Unknown instead of guessing.
